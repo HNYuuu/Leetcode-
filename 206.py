@@ -12,19 +12,22 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        result = []
-        temp = head
-        result.append(head.val)
-        while head.next != None:
-            head = head.next
-            result.append(head.val)
-        head = temp
-        result.reverse()
-        for i in result:
-            head.val = i
-            head = head.next
-        head = temp
-        return head
+        if head == None:
+            return None
+        if head.next == None:
+            return head
+        self.tempHead = None
+
+        def reverse(head):
+            if head.next.next != None:
+                reverse(head.next)
+            else:
+                self.tempHead = head.next
+            head.next.next = head
+        
+        reverse(head)
+        head.next = None
+        return self.tempHead
 
 a = ListNode(1)
 b = ListNode(2)
@@ -32,6 +35,5 @@ c = ListNode(3)
 a.next = b
 b.next = c
 s = Solution()
-s.reverseList(a)
-print(a.val)
+print(s.reverseList(a).val)
 
