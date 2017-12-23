@@ -1,3 +1,7 @@
+# 从1-9找到 k 个数, 使得其和为 n. 还是和前面的思路一样, 
+# 只不过改成了自定义 candidates = [9,8,7,6,5,4,3,2,1], 
+# 在回溯的时候判断一下当前数组长度即可
+
 class Solution:
     def combinationSum3(self, k, n):
         """
