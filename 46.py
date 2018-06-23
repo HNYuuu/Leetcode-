@@ -18,4 +18,4 @@ class Solution:
         backtrack(nums, 0, len(nums)-1)
         return result
 
-print(Solution().permute([1,2,3]))
+print(Solution().permute([1,1,5]))
